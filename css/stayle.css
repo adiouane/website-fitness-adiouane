@@ -1,0 +1,249 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box; /* to make the padding and margin not to be included in the width and height */
+    color: aliceblue;
+    font-family: 'Oswald', sans-serif;
+}
+
+body{
+    background-color: 
+}
+
+.container{
+    background: linear-gradient(rgb(0, 0, 0, 0.3), rgb(0, 0, 0, 0.3)), url('../img/img2.jpeg');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* which help us to hide the scroll bar */
+}
+
+nav{
+    background-color: rgb(0, 0, 0, 0.3);
+    display: flex;
+    padding: 1rem 2rem; /* 1rem is equal to 16px and 2rem is equal to 32px */
+    justify-content: space-between;
+    /* align-items: center; */
+
+}
+
+.nav-links{
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #fff;
+}
+
+.logo span{
+    color: #f26a2e;
+}
+
+nav ul{
+    display: flex;
+    list-style: none; /* to remove the bullet points */
+    margin: auto;
+}
+
+nav ul li{
+    margin: 0 1.5rem;
+}
+
+nav ul li a{
+    text-decoration: none;
+    font-size: 18px;
+    transition: all 0.5s ease-in-out;
+}
+
+.social{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 25rem;
+    transition: all 0.5s ease-in-out;
+    margin-left: 0 30px;
+    margin-right: 0 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 25px;
+}
+
+nav ul li a:hover{
+    color: #f26a2e;
+}
+
+nav ul li a::after{
+    content: "";
+    display: block;
+    height: 2px;
+    width: 0;
+    background-color: #f26a2e;
+    transition: all 0.5s ease-in-out; /* to make the transition smooth animation */
+}
+
+nav ul li a:hover::after{
+    width: 100%;
+}
+
+.social a i:hover{
+    color: #f26a2e;
+    transition: all 0.5s ease-in-out;
+}
+
+.social a i::after{
+    content: "";
+    display: block;
+    height: 2px;
+    width: 0;
+    background-color: #f26a2e;
+    transition: all 0.5s ease-in-out; /* to make the transition smooth animation */
+
+}
+
+.social a i:hover::after{
+    width: 100%;
+}
+
+.social a:first-child, .social a:last-child{
+    display: none;
+}
+
+/*----------------main----------------*/
+
+.main{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main h2{
+    font-size: 72px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.main h1{
+    font-size: 120px;
+    text-transform: uppercase;
+    color: orange;
+    text-align: center;
+}
+
+.main p{
+    font-size: 24px;
+    margin: 1rem 0;
+    margin-left: 5%;
+    margin-right: 5%;
+    text-align: center;
+    /* make text smaller */
+    font-size: 1.2rem;
+}
+
+.btn{
+    margin-top: 15px;;
+    color: #f26a2e;
+    background-color: white;
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+    border: 2px solid #f26a2e;  
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 15px;
+    transition: all 0.5s ease-in-out;
+    border-radius: 10%;
+
+}
+
+.btn:hover{
+    background-color: #f26a2e;
+    color: white;
+    transform: rotate3d(1, 1, 1, 360deg);
+}
+
+/*----------------for screen tablet----------------*/
+@media (max-width: 1020px)
+{
+    .social{
+        position: fixed;
+        top: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        width: 30px;
+        background-color: rgb(0, 0, 0, 0.5);
+        justify-content: center;
+        align-items: center;
+        transition: all 0.5s ease-in-out;
+        border-left:2px solid #f26a2e;
+    }
+}
+
+/*----------------for screen mobile----------------*/
+
+@media (max-width: 645px) {
+    .nav-links{
+            display: absolute;
+    }
+    .nav-links ul {
+        position: fixed;
+        top: 0;
+        right: -250px;
+        width: 250px;
+        height: 100vh;
+        background-color: rgb(0, 0, 0, 0.5);
+        flex-direction: column;
+        justify-content: top;
+        align-items: center;
+        transition: all 0.5s ease-in-out;
+        /* border-left:2px solid #f26a2e; */
+    }
+
+    .nav-links ul li{
+        flex-basis: 40px; /* to make the li take the full width of the ul */
+        flex-grow: 1;
+        max-height: 85px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .nav-links ul.opened{
+        right: 40px;
+    }
+
+    .logo{
+        flex: 11;
+        text-align: center;
+    }
+
+    .social a:first-child, .social a:last-child{
+        position: fixed;
+        top: 0;
+    }
+
+    /* i want just munu icon to be visible */
+    .social a:last-child{
+        display: block;
+    }
+
+    /*so i want to go see if first child has display block */
+    ul.opened ~ .social a:first-child{
+        display: block;
+    }
+
+    /* if x is opened then we hide it */
+    ul.opened ~ .social a:last-child{
+        display: none;
+    }
+}
